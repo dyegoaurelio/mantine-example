@@ -3,6 +3,8 @@ import './globals.css';
 import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { theme } from '../theme';
+import ThemeColorMetaScript from '@/components/ThemeColorMeta/script';
+import ThemeColorMetaUpdate from '@/components/ThemeColorMeta/ThemeColorMetaUpdate';
 
 export const metadata = {
   title: 'Mantine Next.js template',
@@ -14,6 +16,7 @@ export default function RootLayout({ children }: { children: any }) {
     <html lang="en">
       <head>
         <ColorSchemeScript />
+        <ThemeColorMetaScript lightColor="#00ca8e" darkColor="#242424" />
         <link rel="shortcut icon" href="/favicon.svg" />
         <meta
           name="viewport"
@@ -21,7 +24,10 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme}>
+          <ThemeColorMetaUpdate />
+          {children}
+        </MantineProvider>
       </body>
     </html>
   );
