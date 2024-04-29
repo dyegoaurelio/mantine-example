@@ -3,7 +3,7 @@ import './globals.css';
 import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { theme } from '../theme';
-import ThemeColorMetaScript from '@/components/ThemeColorMeta/script';
+import { el_className } from '@/components/ThemeColorMeta/script';
 import ThemeColorMetaUpdate from '@/components/ThemeColorMeta/ThemeColorMetaUpdate';
 
 export const metadata = {
@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: any }) {
     <html lang="en">
       <head>
         <ColorSchemeScript />
-        <ThemeColorMetaScript lightColor="#00ca8e" darkColor="#242424" />
+        <meta name="theme-color" className={el_className} content="#00ca8e" />
         <link rel="shortcut icon" href="/favicon.svg" />
         <meta
           name="viewport"

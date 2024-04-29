@@ -8,12 +8,7 @@ const useBrowserThemeColor = () => {
   const colorScheme = useSafeColorScheme();
 
   const themeColor = useMemo(
-    () =>
-      (colorScheme === null
-        ? null
-        : colorScheme === 'dark'
-          ? (window as any).__themeColor?.dark
-          : (window as any).__themeColor?.light) as string | null,
+    () => (colorScheme === null ? null : colorScheme === 'dark' ? '#242424' : '#00ca8e'),
     [colorScheme]
   );
 
@@ -25,8 +20,6 @@ const ThemeColorMetaUpdateClient = () => {
 
   useEffect(() => {
     if (!themeColor) return;
-
-    (window as any).__themeColor.color = themeColor;
 
     document.querySelectorAll(`meta.${el_className}`).forEach((el) => {
       el.setAttribute('content', themeColor);
