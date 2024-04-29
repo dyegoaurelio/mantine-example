@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import useSafeColorScheme from './useSafeColorScheme';
 import { el_className } from './script';
 
@@ -15,7 +15,7 @@ const useBrowserThemeColor = () => {
   return themeColor;
 };
 
-const ThemeColorMetaUpdateClient = () => {
+const ThemeColorMetaUpdate = () => {
   const themeColor = useBrowserThemeColor();
 
   useEffect(() => {
@@ -29,12 +29,12 @@ const ThemeColorMetaUpdateClient = () => {
   return null;
 };
 
-const ThemeColorMetaUpdate = () => {
-  const [isClient, setIsClient] = useState(false);
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-  return isClient && <ThemeColorMetaUpdateClient />;
-};
+// const ThemeColorMetaUpdate = () => {
+//   const [isClient, setIsClient] = useState(false);
+//   useEffect(() => {
+//     setIsClient(true);
+//   }, []);
+//   return isClient && <ThemeColorMetaUpdateClient />;
+// };
 
 export default ThemeColorMetaUpdate;
